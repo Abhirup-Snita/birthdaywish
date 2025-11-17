@@ -292,28 +292,5 @@
         function createConfetti() {
             for (let i = 0; i < 100; i++) {
                 const confetti = document.createElement('div');
-                confetti.className = 'confetti';
-                confetti.style.left = Math.random() * 100 + 'vw';
-                confetti.style.animationDelay = Math.random() * 2 + 's';
-                confetti.style.background = `hsl(${Math.random() * 360}, 100%, 50%)`;
-                confetti.style.width = Math.random() * 10 + 5 + 'px';
-                confetti.style.height = confetti.style.width;
-                confetti.style.position = 'absolute';
-                confetti.style.top = '-10px';
-                confetti.style.animation = 'fall 3s linear infinite';
-                document.body.appendChild(confetti);
-                setTimeout(() => confetti.remove(), 3000);
-            }
-        }
-
-        // Add CSS for confetti animation
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes fall {
-                to { transform: translateY(100vh) rotate(360deg); }
-            }
-        `;
-        document.head.appendChild(style);
-    </script>
-</body>
-</html>
+                confetti.className = 'confetti'; ⬤
+                
