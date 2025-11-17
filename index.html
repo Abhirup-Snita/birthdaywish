@@ -123,78 +123,6 @@
         button:hover {
             background: #ff5252;
         }
-        .panda {
-            position: absolute;
-            width: 60px;
-            height: 60px;
-            background: #000;
-            border-radius: 50%;
-            left: -100px;
-            top: 50%;
-            transform: translateY(-50%);
-            animation: bounceIn 1s ease-out forwards;
-            z-index: 5;
-        }
-        .panda::before {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background: #fff;
-            border-radius: 50%;
-            top: 15px;
-            left: 10px;
-        }
-        .panda::after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background: #fff;
-            border-radius: 50%;
-            top: 15px;
-            right: 10px;
-        }
-        .panda.ears::before {
-            content: '';
-            position: absolute;
-            width: 15px;
-            height: 15px;
-            background: #000;
-            border-radius: 50%;
-            top: -5px;
-            left: 5px;
-        }
-        .panda.ears::after {
-            content: '';
-            position: absolute;
-            width: 15px;
-            height: 15px;
-            background: #000;
-            border-radius: 50%;
-            top: -5px;
-            right: 5px;
-        }
-        .panda.deliver {
-            animation: deliver 2s ease-in-out forwards;
-        }
-        .panda.exit {
-            animation: exit 1s ease-in forwards;
-        }
-        @keyframes bounceIn {
-            0% { left: -100px; }
-            50% { left: 50px; transform: translateY(-50%) scale(1.1); }
-            100% { left: 50px; transform: translateY(-50%); }
-        }
-        @keyframes deliver {
-            0% { left: 50px; }
-            50% { left: calc(50% + 100px); transform: translateY(-50%) rotate(10deg); }
-            100% { left: calc(50% + 100px); transform: translateY(-50%); }
-        }
-        @keyframes exit {
-            0% { left: calc(50% + 100px); }
-            100% { left: 100vw; }
-        }
         .confetti {
             position: absolute;
             top: 0;
@@ -251,7 +179,7 @@
             জীবনে বহু কথাই আমি বলতে পারিনি,<br>
             কিন্তু সত্যিটা খুব সরল…<br>
             তুই থাকলেই আমার পৃথিবীটা সম্পূর্ণ লাগে।<br>
-            তুই না থাকলে আমি ভিতরে ভিতরে হারিয়ে যাই。</p>
+            তুই না থাকলে আমি ভিতরে ভিতরে হারিয়ে যাই।</p>
             <p>কত ঝড় গেছে, কত রোদ গেছে,<br>
             কত কথা অপূর্ণ রয়ে গেছে—<br>
             তবু একটা সত্যি কখনো পাল্টায় না–<br>
@@ -287,7 +215,6 @@
             <p>— অভিরূপ</p>
             <button id="closeBtn">Close Envelope</button>
         </div>
-        <div class="panda ears" id="panda"></div>
     </div>
 
     <!-- Floating hearts background -->
@@ -321,9 +248,6 @@
             document.getElementById('nextBtn4')
         ];
         const closeBtn = document.getElementById('closeBtn');
-        const panda = document.getElementById('panda');
-
-        let currentPage = 0;
 
         // On Enter key press, check if name is "Snita"
         nameInput.addEventListener('keypress', (e) => {
@@ -344,7 +268,6 @@
             envelope.classList.add('open');
             setTimeout(() => {
                 letterPages[0].classList.add('show');
-                panda.classList.add('deliver');
                 createConfetti();
             }, 500);
         });
@@ -359,15 +282,10 @@
             });
         });
 
-        // Close button with panda exit
+        // Close button
         closeBtn.addEventListener('click', () => {
             letterPages[4].classList.remove('show');
             envelope.classList.remove('open');
-            panda.classList.remove('deliver');
-            panda.classList.add('exit');
-            setTimeout(() => {
-                panda.classList.remove('exit');
-            }, 1000);
         });
 
         // Enhanced confetti function
@@ -398,5 +316,4 @@
         document.head.appendChild(style);
     </script>
 </body>
-
 </html>
